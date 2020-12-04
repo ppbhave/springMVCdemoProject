@@ -6,21 +6,20 @@ xmlns:tx="http://www.springframework.org/schema/tx"
 xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 http://www.springframework.org/schema/mvc
-http://www.springframework.org/schema/mvc/spring-mvc.xsd
+http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
 http://www.springframework.org/schema/tx
 http://www.springframework.org/schema/mvc/spring-tx.xsd
 http://www.springframework.org/schema/context
-http://www.springframework.org/schema/context/spring-context.xsd">
-   
-   <!-- Adding Support for Component Scan -->
-   <ctx:component-scan base-package="com.springMVCcontroller" />
-   <ctx:annotation-config></ctx:annotation-config> 
-   
+http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+<ctx:component-scan base-package="com.springMVCcontroller"></ctx:component-scan>
+<ctx:annotation-config></ctx:annotation-config>
+
 <bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
 <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/telusko"></property>
 <property name="user" value="root"></property>
-<property name="password" value="12345678"></property>
+<property name="password" value="Happy@9297"></property>
 
 <property name="minPoolSize" value="5" />
 <property name="maxPoolSize" value="10" />
@@ -46,11 +45,9 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 </bean>
 
 <tx:annotation-driven transaction-manager="myTransactionManager" />
-   
-   <!-- Configure View Resolver -->
-   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-      <property name="prefix" value="/view/" />
-      <property name="suffix" value=".jsp" />
-   </bean>
- 
-   </beans>
+
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<property name="prefix" value="/view/"></property>
+	<property name="suffix" value=".jsp"></property>
+</bean>
+</beans>
